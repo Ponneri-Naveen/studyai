@@ -36,12 +36,20 @@ class ErrorBoundary extends React.Component {
               </code>
             </div>
 
-            <button
-              onClick={() => window.location.reload()}
-              className="w-full rounded-xl bg-primary-600 px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-primary-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-dark-900"
-            >
-              Refresh Application
-            </button>
+            <div className="flex flex-col gap-2.5">
+              <button
+                onClick={() => window.location.reload()}
+                className="w-full rounded-xl bg-primary-600 px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-primary-500 transition-all duration-200 focus:outline-none"
+              >
+                Refresh Application
+              </button>
+              <button
+                onClick={() => window.location.href = '/'}
+                className="w-full rounded-xl bg-dark-850 hover:bg-dark-800 px-4 py-3 text-sm font-semibold text-dark-300 border border-dark-800 transition-all duration-200 focus:outline-none"
+              >
+                Go to Dashboard
+              </button>
+            </div>
           </div>
         </div>
       );

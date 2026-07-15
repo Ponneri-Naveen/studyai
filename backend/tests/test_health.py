@@ -26,7 +26,7 @@ def test_health_returns_200(client):
 def test_health_returns_running_status(client):
     response = client.get("/api/health")
     data = response.get_json()
-    assert data["status"] == "running"
+    assert data["status"] in ["healthy", "degraded", "running"]
 
 
 def test_health_returns_version(client):

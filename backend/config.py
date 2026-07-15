@@ -11,6 +11,8 @@ load_dotenv()
 
 class Config:
     """Base configuration."""
+    BASE_DIR: str = os.path.dirname(os.path.abspath(__file__))
+    
     # Flask
     SECRET_KEY: str = os.getenv("SECRET_KEY", "dev-secret-change-in-production")
     DEBUG: bool = False
