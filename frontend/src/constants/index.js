@@ -39,6 +39,10 @@ export const API_ENDPOINTS = {
     GENERATE: '/v1/flashcards/generate',
     BASE: '/v1/flashcards',
   },
+  QUIZZES: {
+    GENERATE: '/v1/quizzes/generate',
+    BASE: '/v1/quizzes',
+  },
 };
 
 export const STORAGE_KEYS = {

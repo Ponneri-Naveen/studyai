@@ -87,6 +87,7 @@ const Dashboard = () => {
 
   const generatedSummariesCount = materials.filter(m => m.summary_generated || m.summary_status === 'generated').length;
   const generatedDecksCount = materials.filter(m => m.flashcards_generated).length;
+  const generatedQuizzesCount = materials.filter(m => m.quiz_generated).length;
 
   const stats = [
     { 
@@ -106,6 +107,12 @@ const Dashboard = () => {
       value: materialsLoading ? 'Loading...' : `${generatedDecksCount} deck${generatedDecksCount === 1 ? '' : 's'}`, 
       icon: CreditCard, 
       color: 'text-emerald-400' 
+    },
+    { 
+      name: 'Active Quiz Sheets', 
+      value: materialsLoading ? 'Loading...' : `${generatedQuizzesCount} quiz${generatedQuizzesCount === 1 ? '' : 'zes'}`, 
+      icon: BrainCircuit, 
+      color: 'text-primary-400' 
     },
   ];
 
@@ -168,7 +175,7 @@ const Dashboard = () => {
       </div>
 
       {/* Metrics Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, i) => (
           <div key={i} className="bg-dark-900 border border-dark-850 p-6 rounded-2xl flex items-center justify-between hover:border-dark-800 transition-all duration-200">
             <div>

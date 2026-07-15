@@ -1,0 +1,142 @@
+[
+  {
+    "attempt_id": "att_60833289",
+    "quiz_id": "qz_bd4f375a",
+    "quiz_version": 1,
+    "mode": "practice",
+    "time_taken_seconds": 92,
+    "completed_at": "2026-07-15T12:03:21.709449Z",
+    "question_order": [
+      "q_59e23c34",
+      "q_91d3a38a",
+      "q_776f1ad1",
+      "q_dafeb52b",
+      "q_ec75a7b0",
+      "q_6055ebac",
+      "q_e8884354",
+      "q_dbe6d843",
+      "q_6d05cafc"
+    ],
+    "metrics": {
+      "total_questions": 9,
+      "answered_count": 6,
+      "correct_count": 3,
+      "wrong_count": 3,
+      "skipped_count": 3,
+      "obtained_marks": 3.0,
+      "total_marks": 9.0,
+      "score_percentage": 33.33,
+      "average_difficulty": "medium"
+    },
+    "responses": [
+      {
+        "question_id": "q_59e23c34",
+        "question_type": "mcq",
+        "topic": "Double-Entry Ledger Architecture",
+        "difficulty": "easy",
+        "student_answer": "To ensure transparency and accuracy in all transactions",
+        "correct_answer": "To ensure transparency and accuracy in all transactions",
+        "is_correct": true,
+        "marks": 1.0,
+        "obtained_marks": 1.0,
+        "explanation": "The Double-Entry Ledger Architecture is used to ensure transparency and accuracy in all transactions by creating balanced entries across internal accounts."
+      },
+      {
+        "question_id": "q_91d3a38a",
+        "question_type": "true_false",
+        "topic": "Partner Earning",
+        "difficulty": "medium",
+        "student_answer": "True",
+        "correct_answer": "False",
+        "is_correct": false,
+        "marks": 1.0,
+        "obtained_marks": 0.0,
+        "explanation": "Partner Earning is calculated as Settlement Price * Quantity or Selling Price * 0.8 as fallback."
+      },
+      {
+        "question_id": "q_776f1ad1",
+        "question_type": "short_answer",
+        "topic": "Balance Types",
+        "difficulty": "medium",
+        "student_answer": "",
+        "correct_answer": "Pending Balance refers to earnings from delivered orders still within the return/refund window, while Available Balance refers to funds that have cleared the return window and are ready for withdrawal.",
+        "is_correct": false,
+        "marks": 1.0,
+        "obtained_marks": 0.0,
+        "explanation": "The main difference between Pending Balance and Available Balance is the status of the funds. Pending Balance is for funds that are still within the return/refund window, while Available Balance is for funds that have cleared the return window and are ready for withdrawal."
+      },
+      {
+        "question_id": "q_dafeb52b",
+        "question_type": "mcq",
+        "topic": "Platform Commission",
+        "difficulty": "easy",
+        "student_answer": "Selling Price * Quantity",
+        "correct_answer": "Selling Price - Partner Earning",
+        "is_correct": false,
+        "marks": 1.0,
+        "obtained_marks": 0.0,
+        "explanation": "Platform Commission is calculated as Selling Price - Partner Earning."
+      },
+      {
+        "question_id": "q_ec75a7b0",
+        "question_type": "true_false",
+        "topic": "Maturation Period",
+        "difficulty": "medium",
+        "student_answer": "True",
+        "correct_answer": "False",
+        "is_correct": false,
+        "marks": 1.0,
+        "obtained_marks": 0.0,
+        "explanation": "The maturation period is a specified window, typically 7 days, during which funds stay 'Pending' based on the product's return/replacement policy."
+      },
+      {
+        "question_id": "q_6055ebac",
+        "question_type": "short_answer",
+        "topic": "Settlement Delay Logic",
+        "difficulty": "hard",
+        "student_answer": "",
+        "correct_answer": "The age_partner_balances() function periodically checks for matured entries where the return window has closed and no active return requests exist.",
+        "is_correct": false,
+        "marks": 1.0,
+        "obtained_marks": 0.0,
+        "explanation": "The age_partner_balances() function is used to trigger the settlement of funds after the maturation period."
+      },
+      {
+        "question_id": "q_e8884354",
+        "question_type": "mcq",
+        "topic": "Settlement Delay Logic",
+        "difficulty": "medium",
+        "student_answer": "Funds are moved from pending_balance to available_balance",
+        "correct_answer": "Funds are moved from pending_balance to available_balance",
+        "is_correct": true,
+        "marks": 1.0,
+        "obtained_marks": 1.0,
+        "explanation": "After the maturation period, matured funds move from pending_balance to available_balance, making them available for withdrawal."
+      },
+      {
+        "question_id": "q_dbe6d843",
+        "question_type": "true_false",
+        "topic": "Partner Wallet System",
+        "difficulty": "easy",
+        "student_answer": "True",
+        "correct_answer": "True",
+        "is_correct": true,
+        "marks": 1.0,
+        "obtained_marks": 1.0,
+        "explanation": "The Partner Wallet System is designed to provide transparency, accuracy, and reliability in managing vendor earnings, commissions, and payouts."
+      },
+      {
+        "question_id": "q_6d05cafc",
+        "question_type": "short_answer",
+        "topic": "Commission Due",
+        "difficulty": "medium",
+        "student_answer": "",
+        "correct_answer": "Commission Due refers to funds owed by the partner to the platform, specifically for COD orders where the partner collected cash.",
+        "is_correct": false,
+        "marks": 1.0,
+        "obtained_marks": 0.0,
+        "explanation": "Commission Due is the amount of funds that the partner owes to the platform for COD orders where the partner collected cash."
+      }
+    ]
+  }
+]
