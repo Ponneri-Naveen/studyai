@@ -16,7 +16,7 @@
       "flashcards_generated": true,
       "quiz_generated": true,
       "created_at": "2026-07-15T11:19:54.480171Z",
-      "updated_at": "2026-07-15T15:47:25.678632Z",
+      "updated_at": "2026-07-15T17:51:30.280507Z",
       "text_file_path": "storage/materials/texts/mat_bd4f375a.txt",
       "raw_file_path": "uploads/mat_f2f2427f.docx",
       "analysis_generated": true
@@ -60,6 +60,26 @@
       "updated_at": "2026-07-15T11:34:32.051579Z",
       "text_file_path": "storage/materials/texts/mat_da198227.txt",
       "raw_file_path": null
+    },
+    {
+      "id": "mat_f6c30226",
+      "title": "Partner Wallet System Documentation",
+      "subject": "General",
+      "filename": "Partner Wallet System Documentation.docx",
+      "file_type": "docx",
+      "size_bytes": 22363,
+      "md5_checksum": "0885f36284cc79dc7444e76d1d4651fc",
+      "page_count": 2,
+      "word_count": 925,
+      "character_count": 6746,
+      "summary_generated": false,
+      "summary_status": "not_generated",
+      "flashcards_generated": false,
+      "quiz_generated": false,
+      "created_at": "2026-07-15T17:49:41.990893Z",
+      "updated_at": "2026-07-15T17:49:41.990893Z",
+      "text_file_path": "storage/materials/texts/mat_f6c30226.txt",
+      "raw_file_path": "uploads/mat_4280d8fa.docx"
     }
   ]
 }

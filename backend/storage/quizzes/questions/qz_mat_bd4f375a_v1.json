@@ -1,0 +1,125 @@
+[
+  {
+    "question_id": "q_b2de30f9",
+    "question_type": "mcq",
+    "question": "What is the primary purpose of the Double-Entry Ledger Architecture in the Partner Wallet System?",
+    "topic": "Key Concepts",
+    "difficulty": "easy",
+    "choices": [
+      "To ensure transparency and accuracy in all transactions",
+      "To calculate partner earnings and commission due",
+      "To manage pending and available balances",
+      "To handle withdrawal requests"
+    ],
+    "correct_answer": "To ensure transparency and accuracy in all transactions",
+    "explanation": "The Double-Entry Ledger Architecture is a system where every economic event creates balanced entries across internal accounts, preventing data inconsistency and ensuring transparency and accuracy in all transactions.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_d5c16c4b",
+    "question_type": "true_false",
+    "question": "The Pending Balance refers to funds that have cleared the return window and are ready for withdrawal.",
+    "topic": "Key Concepts",
+    "difficulty": "easy",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "False",
+    "explanation": "The Pending Balance refers to earnings from delivered orders still within the return/refund window, while the Available Balance refers to funds that have cleared the return window and are ready for withdrawal.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_06af181b",
+    "question_type": "short_answer",
+    "question": "What is the formula for calculating Partner Earning in the Partner Wallet System?",
+    "topic": "Detailed Financial Logic",
+    "difficulty": "medium",
+    "choices": [],
+    "correct_answer": "Settlement Price * Quantity (or Selling Price * 0.8 as fallback)",
+    "explanation": "The Partner Earning is calculated as the Settlement Price multiplied by the Quantity, or as the Selling Price multiplied by 0.8 as a fallback.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_d7b02b44",
+    "question_type": "mcq",
+    "question": "What is the role of the age_partner_balances() function in the Partner Wallet System?",
+    "topic": "Complete Wallet Workflow",
+    "difficulty": "medium",
+    "choices": [
+      "To calculate partner earnings and commission due",
+      "To manage pending and available balances",
+      "To periodically check for matured entries and move funds from Pending Balance to Available Balance",
+      "To handle withdrawal requests"
+    ],
+    "correct_answer": "To periodically check for matured entries and move funds from Pending Balance to Available Balance",
+    "explanation": "The age_partner_balances() function periodically checks for matured entries where the return window has closed and no active return requests exist, and moves the funds from Pending Balance to Available Balance.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_c324d717",
+    "question_type": "true_false",
+    "question": "The Available Balance refers to earnings from delivered orders still within the return/refund window.",
+    "topic": "Key Concepts",
+    "difficulty": "easy",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "False",
+    "explanation": "The Available Balance refers to funds that have cleared the return window and are ready for withdrawal, while the Pending Balance refers to earnings from delivered orders still within the return/refund window.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_03fc57aa",
+    "question_type": "short_answer",
+    "question": "What is the purpose of the ledgers table in the Partner Wallet System?",
+    "topic": "Wallet Structure",
+    "difficulty": "medium",
+    "choices": [],
+    "correct_answer": "To record every movement of funds",
+    "explanation": "The ledgers table records every movement of funds in the Partner Wallet System, providing a transparent and accurate record of all transactions.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_3b42c966",
+    "question_type": "mcq",
+    "question": "What is the purpose of the get_partner_financial_summary API endpoint in the Partner Wallet System?",
+    "topic": "API Design",
+    "difficulty": "easy",
+    "choices": [
+      "To initiate a withdrawal request",
+      "To return a summary of the partner's financial information",
+      "To calculate partner earnings and commission due",
+      "To manage pending and available balances"
+    ],
+    "correct_answer": "To return a summary of the partner's financial information",
+    "explanation": "The get_partner_financial_summary API endpoint returns a summary of the partner's financial information.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_7bd80cde",
+    "question_type": "true_false",
+    "question": "The Partner Wallet System uses a Single-Entry Ledger Architecture.",
+    "topic": "Key Concepts",
+    "difficulty": "easy",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "False",
+    "explanation": "The Partner Wallet System uses a Double-Entry Ledger Architecture, which is a system where every economic event creates balanced entries across internal accounts, preventing data inconsistency.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_04c32364",
+    "question_type": "short_answer",
+    "question": "What is the formula for calculating Commission Due in the Partner Wallet System?",
+    "topic": "Detailed Financial Logic",
+    "difficulty": "medium",
+    "choices": [],
+    "correct_answer": "Selling Price - Partner Earning",
+    "explanation": "The Commission Due is calculated as the difference between the Selling Price and the Partner Earning, and is owed by the partner to the platform for COD orders.",
+    "marks": 1.0
+  }
+]

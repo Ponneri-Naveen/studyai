@@ -28,6 +28,35 @@
           "created_at": "2026-07-15T16:53:48.071308Z"
         }
       ]
+    },
+    {
+      "material_id": "mat_bd4f375a",
+      "summary_id": "sum_bd4f375a",
+      "title": "Partner Wallet System Documentation Summary",
+      "subject": "General",
+      "active_version": 1,
+      "summary_status": "generated",
+      "created_at": "2026-07-15T17:41:03.670321Z",
+      "updated_at": "2026-07-15T17:41:03.674573Z",
+      "history": [
+        {
+          "version": 1,
+          "model": "llama-3.3-70b-versatile",
+          "prompt_version": "summary_v1",
+          "word_count": 814,
+          "char_count": 5808,
+          "markdown_file_path": "storage/summaries/texts/sum_mat_bd4f375a_v1.md",
+          "ai_metadata": {
+            "model": "llama-3.3-70b-versatile",
+            "prompt_version": "summary_v1",
+            "latency_ms": 24839,
+            "prompt_tokens": 2138,
+            "completion_tokens": 916,
+            "total_tokens": 3055
+          },
+          "created_at": "2026-07-15T17:41:03.674573Z"
+        }
+      ]
     }
   ]
 }
