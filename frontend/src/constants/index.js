@@ -35,6 +35,10 @@ export const API_ENDPOINTS = {
     GENERATE: '/v1/summary/generate',
     BASE: '/v1/summary',
   },
+  FLASHCARDS: {
+    GENERATE: '/v1/flashcards/generate',
+    BASE: '/v1/flashcards',
+  },
 };
 
 export const STORAGE_KEYS = {

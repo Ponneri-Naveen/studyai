@@ -86,6 +86,7 @@ const Dashboard = () => {
     .slice(0, 3);
 
   const generatedSummariesCount = materials.filter(m => m.summary_generated || m.summary_status === 'generated').length;
+  const generatedDecksCount = materials.filter(m => m.flashcards_generated).length;
 
   const stats = [
     { 
@@ -100,7 +101,12 @@ const Dashboard = () => {
       icon: BookOpen, 
       color: 'text-purple-400' 
     },
-    { name: 'Active Flashcards', value: '0 cards', icon: CreditCard, color: 'text-emerald-400' },
+    { 
+      name: 'Active Flashcard Decks', 
+      value: materialsLoading ? 'Loading...' : `${generatedDecksCount} deck${generatedDecksCount === 1 ? '' : 's'}`, 
+      icon: CreditCard, 
+      color: 'text-emerald-400' 
+    },
   ];
 
   return (
