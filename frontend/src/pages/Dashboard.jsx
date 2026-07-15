@@ -85,6 +85,8 @@ const Dashboard = () => {
     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
     .slice(0, 3);
 
+  const generatedSummariesCount = materials.filter(m => m.summary_generated || m.summary_status === 'generated').length;
+
   const stats = [
     { 
       name: 'Uploaded Materials', 
@@ -92,7 +94,12 @@ const Dashboard = () => {
       icon: UploadCloud, 
       color: 'text-blue-400' 
     },
-    { name: 'Generated Quizzes', value: '0 created', icon: BrainCircuit, color: 'text-purple-400' },
+    { 
+      name: 'Generated Summaries', 
+      value: materialsLoading ? 'Loading...' : `${generatedSummariesCount} summary${generatedSummariesCount === 1 ? '' : 'ies'}`, 
+      icon: BookOpen, 
+      color: 'text-purple-400' 
+    },
     { name: 'Active Flashcards', value: '0 cards', icon: CreditCard, color: 'text-emerald-400' },
   ];
 

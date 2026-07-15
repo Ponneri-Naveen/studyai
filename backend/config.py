@@ -35,6 +35,12 @@ class Config:
     MAX_OUTPUT_TOKENS: int = 4096
     MAX_REQUESTS_PER_MINUTE: int = 20
 
+    # Summary Ingestion Parameters
+    MAX_SUMMARY_INPUT_CHARS: int = int(os.getenv("MAX_SUMMARY_INPUT_CHARS", "30000"))
+    MAX_SUMMARY_OVERLAP_CHARS: int = int(os.getenv("MAX_SUMMARY_OVERLAP_CHARS", "2000"))
+    MAX_SUMMARY_TOTAL_LIMIT: int = 500000
+    MAX_SUMMARY_VERSIONS_RETAINED: int = 5
+
     # Firebase (populated later)
     FIREBASE_PROJECT_ID: str = os.getenv("FIREBASE_PROJECT_ID", "")
     FIREBASE_CREDENTIALS_PATH: str = os.getenv("FIREBASE_CREDENTIALS_PATH", "")

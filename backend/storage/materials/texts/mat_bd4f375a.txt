@@ -1,0 +1,106 @@
+Partner Wallet System Documentation
+1. Overview
+The Partner Wallet System is the financial backbone of the Rerender platform, designed to manage vendor earnings, commissions, and payouts with absolute precision. It provides partners with a real-time ledger of their financial health, ensuring transparency in every transaction from order placement to final bank settlement.
+The system utilizes a Double-Entry Ledger Architecture, where every economic event (order delivery, refund, withdrawal) creates balanced entries across internal accounts, preventing "ghost" money or data inconsistency.
+2. System Objectives
+Transparency: Partners can drill down into any balance to see the exact orders and maturation dates.
+Accurate Earnings Tracking: Automated calculations based on SKU-level settlement prices and platform commission rates.
+Settlement Management: A robust maturation workflow that handles the transition from "Pending" funds to "Available" cash after return windows close.
+3. Complete Wallet Workflow
+The lifecycle of funds within the system follows a strict, state-driven path:
+Order Placement: Customer places an order (Prepaid or COD). No wallet impact yet.
+Order Completion (Delivery): When an order status updates to delivered, the trg_process_order_financials_consolidated trigger executes:
+Earnings Calculation: Determines Partner Payout vs. Platform Commission.
+Money Holding Logic:
+If Prepaid/Admin COD: Cash is held by the platform.
+If Partner COD: Cash is held by the vendor.
+Wallet Credit Calculation: Funds are recorded in the ledgers table. Partner's share enters the pending_balance.
+Maturation Period: Funds stay "Pending" for a specified window (typically 7 days) based on the product's return/replacement policy.
+Settlement Delay Logic: The age_partner_balances() function periodically checks for matured entries where the return window has closed and no active return requests exist.
+Available Balance: Matured funds move from pending_balance to available_balance.
+Withdrawal Request: Partner initiates a payout for any amount up to their available_balance.
+Admin Approval: Platform administrator reviews the withdrawal request.
+Final Payout: Upon approval, funds are transferred via bank transfer, and the wallet is debited.
+4. Detailed Financial Logic
+Pricing Definitions
+MRP (Base Price): The maximum retail price of the product.
+Selling Price: The actual price paid by the customer after discounts.
+Settlement Price: The fixed price promised to the partner per SKU (defined in product_variants).
+Formulas
+Money Holder Logic
+The system dynamically handles who physically holds the cash to prevent unnecessary transfers:
+Admin Holds Cash: If payment is prepaid or shipping_handler is admin.
+Partner Holds Cash: If payment is cod AND shipping_handler is partner.
+5. Wallet Structure
+6. Transaction System (Ledger)
+Every movement is recorded as a Ledger Entry.
+Example: Prepaid Order (₹1,000 Selling, ₹800 Settlement)
+Credit (Partner): ₹800 (Category: partner_earning, Status: Pending)
+Credit (Admin): ₹200 (Category: platform_commission)
+Example: Partner COD Order (₹1,000 Selling, ₹800 Settlement)
+Credit (Admin): ₹200 (Category: platform_commission)
+Debit (Partner): ₹200 (Category: commission_payable) -> Partner keeps ₹1000 cash, but owes ₹200 commission.
+7. Database Design
+partner_wallets
+ledgers
+8. API Design (Postgres RPCs)
+get_partner_financial_summary
+Request: { p_partner_id: "uuid" } Response:
+json
+{
+  "partner_earnings": 150000,
+  "pending_balance": 25000,
+  "available_balance": 125000,
+  "commission_payable": 5000
+}
+request_withdrawal
+Request: { p_amount_cents: 50000, p_payout_details: { "method": "bank" } } Response: withdrawal_id (UUID)
+9. Business Rules
+Settlement Cycle: T+7 days after delivery (configurable via product policy).
+Minimum Withdrawal: (Customizable, defaults to ₹500).
+Dues Clearing: If a partner has commission_payable > 0, any withdrawal request will deduct the dues first from the bank transfer.
+Refund Policy: Refunds trigger a reverse ledger entry, debiting the partner's pending or commission account accordingly.
+10. Security & Reliability
+ACID Transactions: All financial updates are wrapped in Postgres transactions.
+Idempotency: Prevent duplicate trigger execution via state checks (OLD.status != 'delivered').
+Audit Logs: The ledgers table serves as a permanent, immutable audit trail.
+Fraud Prevention: Manual payment reports for dues require Admin verification before the balance is updated.
+11. UI/UX Explanation
+Dashboard: Displays three high-impact Cards (Pending, Available, Commission Due) with "Drill-down" capability.
+Drill-down Modal: Permits partners to see exactly which orders make up a specific balance.
+Transaction History: Filterable table showing credits (earnings) and debits (withdrawals/refunds).
+12. Example Scenarios
+Scenario A: Normal Prepaid Order
+Order Total: ₹2,000
+Settlement: ₹1,600
+On Delivery: pending_balance increases by ₹1,600.
+At T+7 Days: pending_balance decreases by ₹1,600; available_balance increases by ₹1,600.
+Scenario B: Returned Order (Prepaid)
+Order has matured (₹1,600 in available_balance).
+Customer returns product.
+On Approval: Ledger entry debit for ₹1,600. available_balance reduced.
+13. Edge Cases
+Double Withdrawal: The request_withdrawal RPC checks for available_balance at the time of execution; database constraints prevent negative balances.
+Negative Balance handling: Occurs if a refund happens but the partner has already withdrawn funds. This creates a "Debt" entry in the available_balance that is cleared by future earnings.
+Component | Formula
+Partner Earning | Settlement Price * Quantity (or Selling Price * 0.8 as fallback)
+Platform Commission | Selling Price - Partner Earning
+Commission Due (for COD) | Selling Price - Partner Earning (Owed by partner to platform)
+Metric | Description
+Pending Balance | Earnings from delivered orders still within the return/refund window.
+Available Balance | Funds that have cleared the return window and are ready for withdrawal.
+Commission Due | Funds owed by the partner to the platform (specifically for COD orders where the partner collected cash).
+Total Earnings | Lifetime net earnings (cumulative matured and pending).
+Field | Type | Description
+partner_id | UUID (PK) | Link to Partner
+pending_balance | Integer | Balance in maturation
+available_balance | Integer | Withdrawlable funds
+commission_payable | Integer | Dues to platform
+Field | Type | Description
+ledger_id | UUID (PK) | Unique ID
+order_id | UUID | Associated Order
+account_type | Text | 'admin' or 'partner'
+entry_type | Text | 'credit' or 'debit'
+amount | Integer | Amount in cents
+category | Text | E.g., partner_earning, withdrawal, refund
+maturation_date | TIMESTAMPTZ | When funds clear

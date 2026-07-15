@@ -31,6 +31,10 @@ export const API_ENDPOINTS = {
     HEALTH: '/v1/ai/health',
     TEST: '/v1/ai/test',
   },
+  SUMMARY: {
+    GENERATE: '/v1/summary/generate',
+    BASE: '/v1/summary',
+  },
 };
 
 export const STORAGE_KEYS = {

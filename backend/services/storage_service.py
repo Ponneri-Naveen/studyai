@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 # Resolve base directories relative to this file (backend/services/storage_service.py)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STORAGE_DIR = os.path.join(BASE_DIR, "storage", "data")
+STORAGE_DIR = os.path.join(BASE_DIR, "storage", "materials")
 TEXTS_DIR = os.path.join(STORAGE_DIR, "texts")
 METADATA_FILE = os.path.join(STORAGE_DIR, "materials.json")
 
@@ -152,6 +152,7 @@ def add_material(
         "word_count": word_count,
         "character_count": character_count,
         "summary_generated": False,
+        "summary_status": "not_generated",
         "flashcards_generated": False,
         "quiz_generated": False,
         "created_at": timestamp,
