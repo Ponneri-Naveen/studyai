@@ -24,7 +24,7 @@ const Navbar = () => {
     { name: 'Summary', path: ROUTES.SUMMARY, icon: FileText },
     { name: 'Flashcards', path: ROUTES.FLASHCARDS, icon: CreditCard },
     { name: 'Quiz', path: ROUTES.QUIZ, icon: BrainCircuit },
-    { name: 'Schedule', path: ROUTES.SCHEDULE, icon: Calendar },
+    { name: 'Study Planner', path: ROUTES.SCHEDULE, icon: Calendar },
     { name: 'Weak Topics', path: ROUTES.ANALYTICS, icon: BarChart3 },
   ];
 

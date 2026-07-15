@@ -15,7 +15,7 @@ import Upload from './pages/Upload';
 import Summary from './pages/Summary';
 import Flashcards from './pages/Flashcards';
 import Quiz from './pages/Quiz';
-import Schedule from './pages/Schedule';
+import StudyPlanner from './pages/StudyPlanner';
 import WeakTopics from './pages/WeakTopics';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
@@ -38,7 +38,7 @@ function App() {
         <Route path={ROUTES.SUMMARY} element={<Summary />} />
         <Route path={ROUTES.FLASHCARDS} element={<Flashcards />} />
         <Route path={ROUTES.QUIZ} element={<Quiz />} />
-        <Route path={ROUTES.SCHEDULE} element={<Schedule />} />
+        <Route path={ROUTES.SCHEDULE} element={<StudyPlanner />} />
         <Route path={ROUTES.ANALYTICS} element={<WeakTopics />} />
         <Route path={ROUTES.PROFILE} element={<Profile />} />
       </Route>

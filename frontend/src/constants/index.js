@@ -47,6 +47,10 @@ export const API_ENDPOINTS = {
     GENERATE: '/v1/analysis/generate',
     BASE: '/v1/analysis',
   },
+  PLANS: {
+    GENERATE: '/v1/plans/generate',
+    BASE: '/v1/plans',
+  },
 };
 
 export const STORAGE_KEYS = {
