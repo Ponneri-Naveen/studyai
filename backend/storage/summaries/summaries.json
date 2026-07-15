@@ -1,14 +1,14 @@
 {
   "summaries": [
     {
-      "material_id": "mat_8e82537a",
-      "summary_id": "sum_8e82537a",
+      "material_id": "mat_93654d56",
+      "summary_id": "sum_93654d56",
       "title": "Huge Notes Summary",
       "subject": "Chemistry",
       "active_version": 1,
       "summary_status": "generated",
-      "created_at": "2026-07-15T14:04:27.340053Z",
-      "updated_at": "2026-07-15T14:04:27.340053Z",
+      "created_at": "2026-07-15T14:39:18.750560Z",
+      "updated_at": "2026-07-15T14:39:18.750560Z",
       "history": [
         {
           "version": 1,
@@ -16,7 +16,7 @@
           "prompt_version": "summary_v1",
           "word_count": 5,
           "char_count": 38,
-          "markdown_file_path": "storage/summaries/texts/sum_mat_8e82537a_v1.md",
+          "markdown_file_path": "storage/summaries/texts/sum_mat_93654d56_v1.md",
           "ai_metadata": {
             "model": "llama-3.3-70b-versatile",
             "prompt_version": "summary_v1",
@@ -25,7 +25,36 @@
             "completion_tokens": 108,
             "total_tokens": 360
           },
-          "created_at": "2026-07-15T14:04:27.340053Z"
+          "created_at": "2026-07-15T14:39:18.750560Z"
+        }
+      ]
+    },
+    {
+      "material_id": "mat_bd4f375a",
+      "summary_id": "sum_bd4f375a",
+      "title": "Partner Wallet System Documentation Summary",
+      "subject": "General",
+      "active_version": 1,
+      "summary_status": "generated",
+      "created_at": "2026-07-15T15:43:51.943606Z",
+      "updated_at": "2026-07-15T15:43:51.945192Z",
+      "history": [
+        {
+          "version": 1,
+          "model": "llama-3.3-70b-versatile",
+          "prompt_version": "summary_v1",
+          "word_count": 828,
+          "char_count": 5593,
+          "markdown_file_path": "storage/summaries/texts/sum_mat_bd4f375a_v1.md",
+          "ai_metadata": {
+            "model": "llama-3.3-70b-versatile",
+            "prompt_version": "summary_v1",
+            "latency_ms": 4364,
+            "prompt_tokens": 2121,
+            "completion_tokens": 909,
+            "total_tokens": 3030
+          },
+          "created_at": "2026-07-15T15:43:51.945192Z"
         }
       ]
     }

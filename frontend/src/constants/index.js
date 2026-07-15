@@ -10,6 +10,7 @@ export const ROUTES = {
   QUIZ: '/quiz',
   SCHEDULE: '/schedule',
   ANALYTICS: '/analytics',
+  WEAK_TOPICS: '/weak-topics',
   LOGIN: '/login',
   REGISTER: '/register',
   PROFILE: '/profile',

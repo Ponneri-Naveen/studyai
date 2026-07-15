@@ -1,0 +1,130 @@
+[
+  {
+    "question_id": "q_07fcc31c",
+    "question_type": "mcq",
+    "question": "What is the primary purpose of the Partner Wallet System?",
+    "topic": "Introduction to Partner Wallet System",
+    "difficulty": "easy",
+    "choices": [
+      "To manage vendor earnings and commissions",
+      "To handle customer orders and refunds",
+      "To provide platform analytics and insights",
+      "To facilitate bank transfers and payments"
+    ],
+    "correct_answer": "To manage vendor earnings and commissions",
+    "explanation": "The Partner Wallet System is designed to handle vendor earnings, commissions, and payouts with precision, providing transparency and accurate earnings tracking.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_95d54d27",
+    "question_type": "true_false",
+    "question": "The Partner Wallet System utilizes a Single-Entry Ledger Architecture.",
+    "topic": "Double-Entry Ledger Architecture",
+    "difficulty": "easy",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "False",
+    "explanation": "The Partner Wallet System uses a Double-Entry Ledger Architecture to prevent data inconsistency and ensure transparency in all transactions.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_02f872e0",
+    "question_type": "short_answer",
+    "question": "What is the difference between Pending Balance and Available Balance in the Partner Wallet System?",
+    "topic": "Wallet Structure",
+    "difficulty": "medium",
+    "choices": [],
+    "correct_answer": "Pending Balance refers to earnings from delivered orders still within the return/refund window, while Available Balance refers to funds that have cleared the return window and are ready for withdrawal.",
+    "explanation": "The Pending Balance and Available Balance are two distinct fields in the wallet structure, each representing a different stage of the earnings maturation process.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_3fc3f1ea",
+    "question_type": "mcq",
+    "question": "How is Partner Earning calculated in the Partner Wallet System?",
+    "topic": "Financial Logic",
+    "difficulty": "medium",
+    "choices": [
+      "Settlement Price * Quantity",
+      "Selling Price * 0.8",
+      "Settlement Price * Quantity (or Selling Price * 0.8 as fallback)",
+      "Selling Price - Platform Commission"
+    ],
+    "correct_answer": "Settlement Price * Quantity (or Selling Price * 0.8 as fallback)",
+    "explanation": "The Partner Earning is calculated using the formula: Settlement Price * Quantity (or Selling Price * 0.8 as fallback).",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_5be95782",
+    "question_type": "true_false",
+    "question": "The age_partner_balances() function is used to initiate withdrawal requests.",
+    "topic": "Settlement Management",
+    "difficulty": "easy",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "False",
+    "explanation": "The age_partner_balances() function is used to periodically check for matured entries where the return window has closed and no active return requests exist, allowing funds to move from pending_balance to available_balance.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_07cb4e82",
+    "question_type": "mcq",
+    "question": "What is the role of the admin in the Partner Wallet System's withdrawal process?",
+    "topic": "Withdrawal Process",
+    "difficulty": "easy",
+    "choices": [
+      "To initiate withdrawal requests",
+      "To review and approve/reject withdrawal requests",
+      "To transfer funds via bank transfer",
+      "To manage platform analytics and insights"
+    ],
+    "correct_answer": "To review and approve/reject withdrawal requests",
+    "explanation": "The admin reviews the withdrawal request initiated by the partner and approves or rejects it, allowing funds to be transferred via bank transfer.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_bb372c33",
+    "question_type": "short_answer",
+    "question": "What is the purpose of the Ledger Entry in the Partner Wallet System?",
+    "topic": "Transaction System",
+    "difficulty": "medium",
+    "choices": [],
+    "correct_answer": "To record every movement in the system, including credits and debits, to provide a transparent and accurate record of financial transactions.",
+    "explanation": "The Ledger Entry is a crucial component of the Partner Wallet System, as it provides a detailed and transparent record of all financial transactions.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_0c2820b5",
+    "question_type": "mcq",
+    "question": "How does the Partner Wallet System handle Commission Due for COD orders?",
+    "topic": "Financial Logic",
+    "difficulty": "medium",
+    "choices": [
+      "Commission Due is calculated as Settlement Price - Partner Earning",
+      "Commission Due is calculated as Selling Price - Partner Earning",
+      "Commission Due is calculated as Platform Commission - Partner Earning",
+      "Commission Due is not applicable for COD orders"
+    ],
+    "correct_answer": "Commission Due is calculated as Selling Price - Partner Earning",
+    "explanation": "For COD orders, Commission Due is calculated as Selling Price - Partner Earning, and is owed by the partner to the platform.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_0c2a4d04",
+    "question_type": "true_false",
+    "question": "The Partner Wallet System provides partners with a real-time ledger of their financial health.",
+    "topic": "Introduction to Partner Wallet System",
+    "difficulty": "easy",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "True",
+    "explanation": "The Partner Wallet System provides partners with a real-time ledger of their financial health, ensuring transparency in every transaction.",
+    "marks": 1.0
+  }
+]

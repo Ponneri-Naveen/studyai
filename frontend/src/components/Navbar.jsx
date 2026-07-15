@@ -5,7 +5,7 @@ import { ROUTES } from '../constants';
 import { 
   Menu, X, BookOpen, LayoutDashboard, UploadCloud, 
   FileText, CreditCard, BrainCircuit, Calendar, 
-  BarChart3, User, LogOut 
+  BarChart3, User, LogOut, AlertTriangle
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -25,7 +25,8 @@ const Navbar = () => {
     { name: 'Flashcards', path: ROUTES.FLASHCARDS, icon: CreditCard },
     { name: 'Quiz', path: ROUTES.QUIZ, icon: BrainCircuit },
     { name: 'Study Planner', path: ROUTES.SCHEDULE, icon: Calendar },
-    { name: 'Weak Topics', path: ROUTES.ANALYTICS, icon: BarChart3 },
+    { name: 'Weak Topics', path: ROUTES.WEAK_TOPICS, icon: AlertTriangle },
+    { name: 'Analytics', path: ROUTES.ANALYTICS, icon: BarChart3 },
   ];
 
   return (
