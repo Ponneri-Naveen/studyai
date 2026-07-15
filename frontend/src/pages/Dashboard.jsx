@@ -220,11 +220,11 @@ const Dashboard = () => {
               <p className="text-xs text-dark-450 mt-1">Review key notes from uploaded docs.</p>
             </Link>
             <Link 
-              to={ROUTES.SCHEDULE} 
+              to={ROUTES.ANALYSIS} 
               className="p-4 rounded-xl bg-dark-850 border border-dark-800 hover:border-primary-500/30 transition-all duration-200 text-left group"
             >
-              <h3 className="text-sm font-bold text-white group-hover:text-primary-400 transition-colors">Study Plan</h3>
-              <p className="text-xs text-dark-450 mt-1">Check scheduled reminders and goals.</p>
+              <h3 className="text-sm font-bold text-white group-hover:text-primary-400 transition-colors">Weak Topic Analyzer</h3>
+              <p className="text-xs text-dark-450 mt-1">Diagnose performance gaps across tests.</p>
             </Link>
           </div>
         </div>

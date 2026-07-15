@@ -1,21 +1,21 @@
 [
   {
-    "attempt_id": "att_60833289",
+    "attempt_id": "att_d45d8771",
     "quiz_id": "qz_bd4f375a",
     "quiz_version": 1,
     "mode": "practice",
-    "time_taken_seconds": 92,
-    "completed_at": "2026-07-15T12:03:21.709449Z",
+    "time_taken_seconds": 102,
+    "completed_at": "2026-07-15T13:42:08.288811Z",
     "question_order": [
-      "q_59e23c34",
-      "q_91d3a38a",
-      "q_776f1ad1",
-      "q_dafeb52b",
-      "q_ec75a7b0",
-      "q_6055ebac",
-      "q_e8884354",
-      "q_dbe6d843",
-      "q_6d05cafc"
+      "q_4ea23a7b",
+      "q_ca5d785a",
+      "q_85001469",
+      "q_efb3ca3b",
+      "q_e033d4d5",
+      "q_02b4b6f9",
+      "q_ee1bf6b8",
+      "q_b60c937f",
+      "q_8e132c08"
     ],
     "metrics": {
       "total_questions": 9,
@@ -30,112 +30,112 @@
     },
     "responses": [
       {
-        "question_id": "q_59e23c34",
+        "question_id": "q_4ea23a7b",
         "question_type": "mcq",
-        "topic": "Double-Entry Ledger Architecture",
+        "topic": "System Objectives",
         "difficulty": "easy",
-        "student_answer": "To ensure transparency and accuracy in all transactions",
-        "correct_answer": "To ensure transparency and accuracy in all transactions",
-        "is_correct": true,
-        "marks": 1.0,
-        "obtained_marks": 1.0,
-        "explanation": "The Double-Entry Ledger Architecture is used to ensure transparency and accuracy in all transactions by creating balanced entries across internal accounts."
-      },
-      {
-        "question_id": "q_91d3a38a",
-        "question_type": "true_false",
-        "topic": "Partner Earning",
-        "difficulty": "medium",
-        "student_answer": "True",
-        "correct_answer": "False",
+        "student_answer": "Transparency and Accuracy",
+        "correct_answer": "All of the above",
         "is_correct": false,
         "marks": 1.0,
         "obtained_marks": 0.0,
-        "explanation": "Partner Earning is calculated as Settlement Price * Quantity or Selling Price * 0.8 as fallback."
+        "explanation": "The Partner Wallet System's primary objectives are transparency, accurate earnings tracking, and efficient settlement management."
       },
       {
-        "question_id": "q_776f1ad1",
+        "question_id": "q_ca5d785a",
+        "question_type": "true_false",
+        "topic": "Double-Entry Ledger Architecture",
+        "difficulty": "medium",
+        "student_answer": "True",
+        "correct_answer": "True",
+        "is_correct": true,
+        "marks": 1.0,
+        "obtained_marks": 1.0,
+        "explanation": "The Double-Entry Ledger Architecture ensures transparency and accuracy in all transactions by creating balanced entries across internal accounts, preventing data inconsistency."
+      },
+      {
+        "question_id": "q_85001469",
         "question_type": "short_answer",
-        "topic": "Balance Types",
+        "topic": "Wallet Workflow",
         "difficulty": "medium",
         "student_answer": "",
         "correct_answer": "Pending Balance refers to earnings from delivered orders still within the return/refund window, while Available Balance refers to funds that have cleared the return window and are ready for withdrawal.",
         "is_correct": false,
         "marks": 1.0,
         "obtained_marks": 0.0,
-        "explanation": "The main difference between Pending Balance and Available Balance is the status of the funds. Pending Balance is for funds that are still within the return/refund window, while Available Balance is for funds that have cleared the return window and are ready for withdrawal."
+        "explanation": "The key difference between Pending Balance and Available Balance lies in their status within the return/refund window, with Pending Balance being funds still within the window and Available Balance being funds that have cleared the window."
       },
       {
-        "question_id": "q_dafeb52b",
+        "question_id": "q_efb3ca3b",
         "question_type": "mcq",
-        "topic": "Platform Commission",
-        "difficulty": "easy",
-        "student_answer": "Selling Price * Quantity",
-        "correct_answer": "Selling Price - Partner Earning",
+        "topic": "Detailed Financial Logic",
+        "difficulty": "hard",
+        "student_answer": "Selling Price - Platform Commission",
+        "correct_answer": "Settlement Price * Quantity (or Selling Price * 0.8 as fallback)",
         "is_correct": false,
         "marks": 1.0,
         "obtained_marks": 0.0,
-        "explanation": "Platform Commission is calculated as Selling Price - Partner Earning."
+        "explanation": "Partner Earning is calculated as Settlement Price * Quantity, with Selling Price * 0.8 serving as a fallback calculation method."
       },
       {
-        "question_id": "q_ec75a7b0",
+        "question_id": "q_e033d4d5",
         "question_type": "true_false",
-        "topic": "Maturation Period",
+        "topic": "Wallet Workflow",
+        "difficulty": "medium",
+        "student_answer": "False",
+        "correct_answer": "False",
+        "is_correct": true,
+        "marks": 1.0,
+        "obtained_marks": 1.0,
+        "explanation": "The age_partner_balances() function actually moves matured funds from pending_balance to available_balance, not the other way around."
+      },
+      {
+        "question_id": "q_02b4b6f9",
+        "question_type": "short_answer",
+        "topic": "Database Design",
+        "difficulty": "easy",
+        "student_answer": "",
+        "correct_answer": "partner_wallets and ledgers",
+        "is_correct": false,
+        "marks": 1.0,
+        "obtained_marks": 0.0,
+        "explanation": "The Partner Wallet System's database design utilizes two primary tables: partner_wallets, which records partner earnings, and ledgers, which records every movement as a Ledger Entry."
+      },
+      {
+        "question_id": "q_ee1bf6b8",
+        "question_type": "mcq",
+        "topic": "API Design",
+        "difficulty": "easy",
+        "student_answer": "Return a summary of partner earnings, pending balance, available balance, and commission payable",
+        "correct_answer": "Return a summary of partner earnings, pending balance, available balance, and commission payable",
+        "is_correct": true,
+        "marks": 1.0,
+        "obtained_marks": 1.0,
+        "explanation": "The get_partner_financial_summary API endpoint is designed to return a summary of partner earnings, pending balance, available balance, and commission payable."
+      },
+      {
+        "question_id": "q_b60c937f",
+        "question_type": "true_false",
+        "topic": "Key Concepts",
         "difficulty": "medium",
         "student_answer": "True",
         "correct_answer": "False",
         "is_correct": false,
         "marks": 1.0,
         "obtained_marks": 0.0,
-        "explanation": "The maturation period is a specified window, typically 7 days, during which funds stay 'Pending' based on the product's return/replacement policy."
+        "explanation": "Commission Due actually refers to funds owed by the partner to the platform, specifically for COD orders where the partner collected cash."
       },
       {
-        "question_id": "q_6055ebac",
+        "question_id": "q_8e132c08",
         "question_type": "short_answer",
-        "topic": "Settlement Delay Logic",
-        "difficulty": "hard",
+        "topic": "Double-Entry Ledger Architecture",
+        "difficulty": "medium",
         "student_answer": "",
-        "correct_answer": "The age_partner_balances() function periodically checks for matured entries where the return window has closed and no active return requests exist.",
+        "correct_answer": "To ensure transparency and accuracy in all transactions",
         "is_correct": false,
         "marks": 1.0,
         "obtained_marks": 0.0,
-        "explanation": "The age_partner_balances() function is used to trigger the settlement of funds after the maturation period."
-      },
-      {
-        "question_id": "q_e8884354",
-        "question_type": "mcq",
-        "topic": "Settlement Delay Logic",
-        "difficulty": "medium",
-        "student_answer": "Funds are moved from pending_balance to available_balance",
-        "correct_answer": "Funds are moved from pending_balance to available_balance",
-        "is_correct": true,
-        "marks": 1.0,
-        "obtained_marks": 1.0,
-        "explanation": "After the maturation period, matured funds move from pending_balance to available_balance, making them available for withdrawal."
-      },
-      {
-        "question_id": "q_dbe6d843",
-        "question_type": "true_false",
-        "topic": "Partner Wallet System",
-        "difficulty": "easy",
-        "student_answer": "True",
-        "correct_answer": "True",
-        "is_correct": true,
-        "marks": 1.0,
-        "obtained_marks": 1.0,
-        "explanation": "The Partner Wallet System is designed to provide transparency, accuracy, and reliability in managing vendor earnings, commissions, and payouts."
-      },
-      {
-        "question_id": "q_6d05cafc",
-        "question_type": "short_answer",
-        "topic": "Commission Due",
-        "difficulty": "medium",
-        "student_answer": "",
-        "correct_answer": "Commission Due refers to funds owed by the partner to the platform, specifically for COD orders where the partner collected cash.",
-        "is_correct": false,
-        "marks": 1.0,
-        "obtained_marks": 0.0,
-        "explanation": "Commission Due is the amount of funds that the partner owes to the platform for COD orders where the partner collected cash."
+        "explanation": "The Double-Entry Ledger Architecture is used to ensure transparency and accuracy in all transactions by creating balanced entries across internal accounts, preventing data inconsistency."
       }
     ]
   }

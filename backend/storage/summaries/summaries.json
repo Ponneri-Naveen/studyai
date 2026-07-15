@@ -1,14 +1,14 @@
 {
   "summaries": [
     {
-      "material_id": "mat_e9b7b58b",
-      "summary_id": "sum_e9b7b58b",
+      "material_id": "mat_a4dba754",
+      "summary_id": "sum_a4dba754",
       "title": "Huge Notes Summary",
       "subject": "Chemistry",
       "active_version": 1,
       "summary_status": "generated",
-      "created_at": "2026-07-15T11:53:01.825868Z",
-      "updated_at": "2026-07-15T11:53:01.825868Z",
+      "created_at": "2026-07-15T12:19:54.568722Z",
+      "updated_at": "2026-07-15T12:19:54.569343Z",
       "history": [
         {
           "version": 1,
@@ -16,7 +16,7 @@
           "prompt_version": "summary_v1",
           "word_count": 5,
           "char_count": 38,
-          "markdown_file_path": "storage/summaries/texts/sum_mat_e9b7b58b_v1.md",
+          "markdown_file_path": "storage/summaries/texts/sum_mat_a4dba754_v1.md",
           "ai_metadata": {
             "model": "llama-3.3-70b-versatile",
             "prompt_version": "summary_v1",
@@ -25,7 +25,7 @@
             "completion_tokens": 108,
             "total_tokens": 360
           },
-          "created_at": "2026-07-15T11:53:01.825868Z"
+          "created_at": "2026-07-15T12:19:54.569343Z"
         }
       ]
     },
@@ -36,25 +36,25 @@
       "subject": "General",
       "active_version": 1,
       "summary_status": "generated",
-      "created_at": "2026-07-15T11:56:20.825343Z",
-      "updated_at": "2026-07-15T11:56:20.827089Z",
+      "created_at": "2026-07-15T12:27:38.857534Z",
+      "updated_at": "2026-07-15T12:27:38.857534Z",
       "history": [
         {
           "version": 1,
           "model": "llama-3.3-70b-versatile",
           "prompt_version": "summary_v1",
-          "word_count": 778,
-          "char_count": 5572,
+          "word_count": 652,
+          "char_count": 4731,
           "markdown_file_path": "storage/summaries/texts/sum_mat_bd4f375a_v1.md",
           "ai_metadata": {
             "model": "llama-3.3-70b-versatile",
             "prompt_version": "summary_v1",
-            "latency_ms": 4263,
-            "prompt_tokens": 2094,
-            "completion_tokens": 897,
-            "total_tokens": 2992
+            "latency_ms": 2955,
+            "prompt_tokens": 1962,
+            "completion_tokens": 840,
+            "total_tokens": 2803
           },
-          "created_at": "2026-07-15T11:56:20.827089Z"
+          "created_at": "2026-07-15T12:27:38.857534Z"
         }
       ]
     }

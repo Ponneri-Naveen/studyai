@@ -1,0 +1,125 @@
+[
+  {
+    "question_id": "q_4ea23a7b",
+    "question_type": "mcq",
+    "question": "What is the primary objective of the Partner Wallet System?",
+    "topic": "System Objectives",
+    "difficulty": "easy",
+    "choices": [
+      "Transparency and Accuracy",
+      "Efficient Settlement Management",
+      "Partner Earnings Tracking",
+      "All of the above"
+    ],
+    "correct_answer": "All of the above",
+    "explanation": "The Partner Wallet System's primary objectives are transparency, accurate earnings tracking, and efficient settlement management.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_ca5d785a",
+    "question_type": "true_false",
+    "question": "The Double-Entry Ledger Architecture is used to prevent data inconsistency in the Partner Wallet System.",
+    "topic": "Double-Entry Ledger Architecture",
+    "difficulty": "medium",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "True",
+    "explanation": "The Double-Entry Ledger Architecture ensures transparency and accuracy in all transactions by creating balanced entries across internal accounts, preventing data inconsistency.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_85001469",
+    "question_type": "short_answer",
+    "question": "What is the difference between Pending Balance and Available Balance?",
+    "topic": "Wallet Workflow",
+    "difficulty": "medium",
+    "choices": [],
+    "correct_answer": "Pending Balance refers to earnings from delivered orders still within the return/refund window, while Available Balance refers to funds that have cleared the return window and are ready for withdrawal.",
+    "explanation": "The key difference between Pending Balance and Available Balance lies in their status within the return/refund window, with Pending Balance being funds still within the window and Available Balance being funds that have cleared the window.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_efb3ca3b",
+    "question_type": "mcq",
+    "question": "How is Partner Earning calculated in the Partner Wallet System?",
+    "topic": "Detailed Financial Logic",
+    "difficulty": "hard",
+    "choices": [
+      "Settlement Price * Quantity",
+      "Selling Price * 0.8",
+      "Settlement Price * Quantity (or Selling Price * 0.8 as fallback)",
+      "Selling Price - Platform Commission"
+    ],
+    "correct_answer": "Settlement Price * Quantity (or Selling Price * 0.8 as fallback)",
+    "explanation": "Partner Earning is calculated as Settlement Price * Quantity, with Selling Price * 0.8 serving as a fallback calculation method.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_e033d4d5",
+    "question_type": "true_false",
+    "question": "The age_partner_balances() function moves matured funds from available_balance to pending_balance.",
+    "topic": "Wallet Workflow",
+    "difficulty": "medium",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "False",
+    "explanation": "The age_partner_balances() function actually moves matured funds from pending_balance to available_balance, not the other way around.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_02b4b6f9",
+    "question_type": "short_answer",
+    "question": "What are the two main tables used in the Partner Wallet System's database design?",
+    "topic": "Database Design",
+    "difficulty": "easy",
+    "choices": [],
+    "correct_answer": "partner_wallets and ledgers",
+    "explanation": "The Partner Wallet System's database design utilizes two primary tables: partner_wallets, which records partner earnings, and ledgers, which records every movement as a Ledger Entry.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_ee1bf6b8",
+    "question_type": "mcq",
+    "question": "What is the purpose of the get_partner_financial_summary API endpoint?",
+    "topic": "API Design",
+    "difficulty": "easy",
+    "choices": [
+      "Initiate a payout for a partner",
+      "Return a summary of partner earnings, pending balance, available balance, and commission payable",
+      "Update partner earnings",
+      "Retrieve a list of all partners"
+    ],
+    "correct_answer": "Return a summary of partner earnings, pending balance, available balance, and commission payable",
+    "explanation": "The get_partner_financial_summary API endpoint is designed to return a summary of partner earnings, pending balance, available balance, and commission payable.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_b60c937f",
+    "question_type": "true_false",
+    "question": "Commission Due refers to funds owed by the platform to the partner.",
+    "topic": "Key Concepts",
+    "difficulty": "medium",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correct_answer": "False",
+    "explanation": "Commission Due actually refers to funds owed by the partner to the platform, specifically for COD orders where the partner collected cash.",
+    "marks": 1.0
+  },
+  {
+    "question_id": "q_8e132c08",
+    "question_type": "short_answer",
+    "question": "What is the purpose of the Double-Entry Ledger Architecture in the Partner Wallet System?",
+    "topic": "Double-Entry Ledger Architecture",
+    "difficulty": "medium",
+    "choices": [],
+    "correct_answer": "To ensure transparency and accuracy in all transactions",
+    "explanation": "The Double-Entry Ledger Architecture is used to ensure transparency and accuracy in all transactions by creating balanced entries across internal accounts, preventing data inconsistency.",
+    "marks": 1.0
+  }
+]

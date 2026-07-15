@@ -16,7 +16,7 @@ import Summary from './pages/Summary';
 import Flashcards from './pages/Flashcards';
 import Quiz from './pages/Quiz';
 import Schedule from './pages/Schedule';
-import Analytics from './pages/Analytics';
+import WeakTopics from './pages/WeakTopics';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -39,7 +39,7 @@ function App() {
         <Route path={ROUTES.FLASHCARDS} element={<Flashcards />} />
         <Route path={ROUTES.QUIZ} element={<Quiz />} />
         <Route path={ROUTES.SCHEDULE} element={<Schedule />} />
-        <Route path={ROUTES.ANALYTICS} element={<Analytics />} />
+        <Route path={ROUTES.ANALYTICS} element={<WeakTopics />} />
         <Route path={ROUTES.PROFILE} element={<Profile />} />
       </Route>
 

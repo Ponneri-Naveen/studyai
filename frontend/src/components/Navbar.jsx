@@ -25,7 +25,7 @@ const Navbar = () => {
     { name: 'Flashcards', path: ROUTES.FLASHCARDS, icon: CreditCard },
     { name: 'Quiz', path: ROUTES.QUIZ, icon: BrainCircuit },
     { name: 'Schedule', path: ROUTES.SCHEDULE, icon: Calendar },
-    { name: 'Analytics', path: ROUTES.ANALYTICS, icon: BarChart3 },
+    { name: 'Weak Topics', path: ROUTES.ANALYTICS, icon: BarChart3 },
   ];
 
   return (

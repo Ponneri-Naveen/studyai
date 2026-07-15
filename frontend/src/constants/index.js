@@ -43,6 +43,10 @@ export const API_ENDPOINTS = {
     GENERATE: '/v1/quizzes/generate',
     BASE: '/v1/quizzes',
   },
+  ANALYSIS: {
+    GENERATE: '/v1/analysis/generate',
+    BASE: '/v1/analysis',
+  },
 };
 
 export const STORAGE_KEYS = {
