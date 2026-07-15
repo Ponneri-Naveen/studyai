@@ -22,6 +22,11 @@ export const API_ENDPOINTS = {
     LOGIN: '/auth/login',
     LOGOUT: '/auth/logout',
   },
+  MATERIALS: {
+    BASE: '/v1/materials',
+    UPLOAD: '/v1/materials/upload',
+    TEXT: '/v1/materials/text',
+  },
 };
 
 export const STORAGE_KEYS = {

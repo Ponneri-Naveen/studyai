@@ -24,6 +24,10 @@ def create_app() -> Flask:
     os.makedirs(cfg.UPLOAD_FOLDER, exist_ok=True)
     os.makedirs(cfg.LOG_FOLDER, exist_ok=True)
 
+    # Initialize local storage databases
+    from services.storage_service import initialize_storage
+    initialize_storage()
+
     # ── Logging ───────────────────────────────────────────────────────────────
     log_file = os.path.join(cfg.LOG_FOLDER, "app.log")
     logging.basicConfig(

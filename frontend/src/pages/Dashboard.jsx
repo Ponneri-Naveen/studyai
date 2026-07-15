@@ -5,16 +5,26 @@ import { useAuth } from '../hooks/useAuth';
 import { 
   CheckCircle, XCircle, AlertTriangle, BookOpen, 
   UploadCloud, BrainCircuit, CreditCard, Sparkles, 
-  GraduationCap, Clock, Award
+  GraduationCap, Clock, Award, Trash2, Eye, X, FileText
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../constants';
+import { ROUTES, API_ENDPOINTS } from '../constants';
+import api from '../services/api';
+import toast from 'react-hot-toast';
 
 const Dashboard = () => {
   const { user } = useAuth();
   const [healthStatus, setHealthStatus] = useState('checking'); // checking, success, error
   const [healthData, setHealthData] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+
+  // Materials tracking
+  const [materials, setMaterials] = useState([]);
+  const [materialsLoading, setMaterialsLoading] = useState(true);
+
+  // Viewer state
+  const [viewerMaterial, setViewerMaterial] = useState(null);
+  const [isViewerLoading, setIsViewerLoading] = useState(false);
 
   useEffect(() => {
     const fetchHealth = async () => {
@@ -27,11 +37,60 @@ const Dashboard = () => {
         setErrorMessage(parseError(err));
       }
     };
+
     fetchHealth();
+    fetchMaterials();
   }, []);
 
+  const fetchMaterials = async () => {
+    setMaterialsLoading(true);
+    try {
+      const response = await api.get(API_ENDPOINTS.MATERIALS.BASE);
+      setMaterials(response.data);
+    } catch (err) {
+      console.error('Failed to load dashboard materials:', err);
+    } finally {
+      setMaterialsLoading(false);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm('Are you sure you want to permanently delete this material?')) {
+      return;
+    }
+    try {
+      await api.delete(`${API_ENDPOINTS.MATERIALS.BASE}/${id}`);
+      toast.success('Material deleted successfully.');
+      fetchMaterials();
+    } catch (err) {
+      toast.error('Failed to delete material: ' + parseError(err));
+    }
+  };
+
+  const handleView = async (item) => {
+    setIsViewerLoading(true);
+    try {
+      const response = await api.get(`${API_ENDPOINTS.MATERIALS.BASE}/${item.id}`);
+      setViewerMaterial(response.data);
+    } catch (err) {
+      toast.error('Failed to load details: ' + parseError(err));
+    } finally {
+      setIsViewerLoading(false);
+    }
+  };
+
+  // Sort by date (descending) and take top 3
+  const recentMaterials = [...materials]
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+    .slice(0, 3);
+
   const stats = [
-    { name: 'Uploaded Materials', value: '0 files', icon: UploadCloud, color: 'text-blue-400' },
+    { 
+      name: 'Uploaded Materials', 
+      value: materialsLoading ? 'Loading...' : `${materials.length} file${materials.length === 1 ? '' : 's'}`, 
+      icon: UploadCloud, 
+      color: 'text-blue-400' 
+    },
     { name: 'Generated Quizzes', value: '0 created', icon: BrainCircuit, color: 'text-purple-400' },
     { name: 'Active Flashcards', value: '0 cards', icon: CreditCard, color: 'text-emerald-400' },
   ];
@@ -58,7 +117,7 @@ const Dashboard = () => {
       </div>
 
       {/* Connection Status Banner (Requirement 12) */}
-      <div className="rounded-xl border p-4 backdrop-blur-sm transition-all duration-300">
+      <div className="rounded-xl border border-dark-850/60 p-4 backdrop-blur-sm transition-all duration-300">
         {healthStatus === 'checking' && (
           <div className="flex items-center gap-3 text-dark-300">
             <div className="h-5 w-5 animate-spin rounded-full border-2 border-dark-400 border-t-transparent"></div>
@@ -144,29 +203,135 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Study Tip or Empty Activity Feed */}
+        {/* Recent Uploads widget */}
         <div className="bg-dark-900 border border-dark-850 p-6 rounded-2xl flex flex-col justify-between space-y-4">
           <div>
             <h2 className="text-lg font-bold text-white flex items-center gap-2">
               <Clock className="w-5 h-5 text-primary-400" />
-              Recent Activity
+              Recent Uploads
             </h2>
-            <div className="mt-8 text-center py-6">
-              <Award className="w-12 h-12 text-dark-600 mx-auto mb-3" />
-              <p className="text-sm text-dark-400 font-medium">No recent learning activity.</p>
-              <p className="text-xs text-dark-500 mt-1 max-w-xs mx-auto">
-                Once you start quizzes or generate study material, your performance data will appear here.
-              </p>
-            </div>
+            
+            {materialsLoading ? (
+              <div className="py-8 text-center text-xs text-dark-500 animate-pulse">
+                Fetching recent uploads...
+              </div>
+            ) : recentMaterials.length === 0 ? (
+              <div className="mt-8 text-center py-6">
+                <Award className="w-12 h-12 text-dark-600 mx-auto mb-3" />
+                <p className="text-sm text-dark-400 font-medium">No uploaded files yet.</p>
+                <p className="text-xs text-dark-500 mt-1 max-w-xs mx-auto">
+                  Use the Upload page to ingest files and start analyzing your material.
+                </p>
+              </div>
+            ) : (
+              <div className="mt-4 space-y-3">
+                {recentMaterials.map((item) => (
+                  <div 
+                    key={item.id}
+                    className="flex items-center justify-between p-3 rounded-lg bg-dark-850 border border-dark-800"
+                  >
+                    <div className="flex items-center gap-2.5 truncate mr-2">
+                      <FileText className="w-4 h-4 text-primary-400 flex-shrink-0" />
+                      <div className="truncate">
+                        <p className="text-xs font-bold text-white truncate max-w-[160px] sm:max-w-[200px]" title={item.title}>
+                          {item.title}
+                        </p>
+                        <span className="text-[9px] text-dark-450">
+                          {item.subject} • {item.word_count} words
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-1.5 flex-shrink-0">
+                      <button 
+                        onClick={() => handleView(item)}
+                        className="p-1 rounded bg-dark-900 text-dark-300 hover:text-white transition-colors cursor-pointer"
+                        title="Quick View"
+                      >
+                        <Eye className="w-3.5 h-3.5" />
+                      </button>
+                      <button 
+                        onClick={() => handleDelete(item.id)}
+                        className="p-1 rounded bg-dark-900 text-red-400 hover:text-red-300 transition-colors cursor-pointer"
+                        title="Delete"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-          <div className="p-3 bg-primary-950/20 border border-primary-500/10 rounded-xl flex items-start gap-3">
+          
+          <div className="p-3 bg-primary-950/20 border border-primary-500/10 rounded-xl flex items-start gap-3 mt-auto">
             <AlertTriangle className="w-5 h-5 text-primary-400 flex-shrink-0 mt-0.5" />
             <p className="text-xs text-primary-350 leading-relaxed">
-              <strong>Tip:</strong> Upload files with text (.pdf, .docx) for best AI processing. Slides with text can also be scanned.
+              <strong>Tip:</strong> Categorize materials using standard subjects (e.g. Mathematics, Biology) to help StudyAI structure custom quiz categories.
             </p>
           </div>
         </div>
       </div>
+
+      {/* Extracted Text Modal Viewer */}
+      {viewerMaterial && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fadeIn">
+          <div className="bg-dark-900 border border-dark-800 rounded-2xl w-full max-w-3xl h-[80vh] flex flex-col shadow-2xl overflow-hidden">
+            {/* Modal Header */}
+            <div className="p-5 border-b border-dark-850 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded bg-primary-950/40 text-primary-400 border border-primary-900/10">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-white max-w-xs md:max-w-md truncate" title={viewerMaterial.title}>
+                    {viewerMaterial.title}
+                  </h3>
+                  <span className="inline-block text-[10px] font-semibold text-primary-400 bg-primary-950/40 px-2 rounded">
+                    {viewerMaterial.subject}
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={() => setViewerMaterial(null)}
+                className="p-1.5 rounded-lg text-dark-400 hover:text-white hover:bg-dark-850 transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="flex-1 p-6 overflow-y-auto bg-dark-950 text-dark-200 font-sans text-sm leading-relaxed whitespace-pre-wrap select-text">
+              {viewerMaterial.extracted_text || 'No text extracted.'}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="p-4 border-t border-dark-850 bg-dark-900 flex justify-between items-center text-xs text-dark-500">
+              <div className="flex gap-4">
+                <span><strong>Pages:</strong> {viewerMaterial.page_count}</span>
+                <span><strong>Words:</strong> {viewerMaterial.word_count}</span>
+                <span><strong>Characters:</strong> {viewerMaterial.character_count}</span>
+              </div>
+              <button
+                onClick={() => setViewerMaterial(null)}
+                className="bg-primary-650 hover:bg-primary-550 text-white font-bold px-4 py-2 rounded-xl transition-colors cursor-pointer"
+              >
+                Close View
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Loading Overlay */}
+      {isViewerLoading && (
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center z-50">
+          <div className="bg-dark-900 border border-dark-800 p-4 rounded-xl flex items-center gap-3 text-white">
+            <span className="h-5 w-5 animate-spin rounded-full border-2 border-primary-500 border-t-transparent"></span>
+            <span className="text-sm font-semibold">Loading material data...</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
