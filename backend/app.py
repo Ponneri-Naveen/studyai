@@ -7,6 +7,9 @@ import logging
 from flask import Flask
 from flask_cors import CORS
 
+from utils.orjson_compat import patch_json_globally
+patch_json_globally()
+
 from config import get_config
 from utils.error_handlers import register_error_handlers
 from utils.logger_factory import configure_logging, get_request_id, get_correlation_id

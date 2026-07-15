@@ -11,13 +11,42 @@ const api = axios.create({
   },
 });
 
-// Request interceptor to attach Bearer token if available
+// Simple client-side GET cache storage
+const getCache = new Map();
+const CACHE_TTL = 15000; // 15 seconds cache lifetime
+
+// Request interceptor to attach Bearer token and serve from cache if available
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    
+    // Check cache for GET requests unless X-Bypass-Cache is requested
+    if (config.method === 'get') {
+      const bypass = config.headers['X-Bypass-Cache'] === 'true';
+      const cacheKey = config.url + (config.params ? JSON.stringify(config.params) : '');
+      
+      if (bypass) {
+        getCache.delete(cacheKey);
+      } else {
+        const cachedEntry = getCache.get(cacheKey);
+        if (cachedEntry && (Date.now() - cachedEntry.timestamp < CACHE_TTL)) {
+          // Serve from memory cache immediately using adapter injection
+          config.adapter = () => {
+            return Promise.resolve({
+              data: cachedEntry.data,
+              status: 200,
+              statusText: 'OK',
+              headers: {},
+              config,
+            });
+          };
+        }
+      }
+    }
+    
     return config;
   },
   (error) => {
@@ -25,13 +54,24 @@ api.interceptors.request.use(
   }
 );
 
-// Response interceptor for unified error parsing
+// Response interceptor for unified error parsing and saving response cache snapshots
 api.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    const { config } = response;
+    
+    // Save GET response data into cache if successful and not bypassed
+    if (config.method === 'get' && config.headers['X-Bypass-Cache'] !== 'true') {
+      const cacheKey = config.url + (config.params ? JSON.stringify(config.params) : '');
+      getCache.set(cacheKey, {
+        data: response.data,
+        timestamp: Date.now()
+      });
+    }
+    
+    return response;
+  },
   (error) => {
-    // Modify the error to be formatted by our parser, or handle session timeouts (e.g. 401)
     if (error.response && error.response.status === 401) {
-      // Token might be expired, optionally log out user or clear storage
       localStorage.removeItem(STORAGE_KEYS.AUTH_USER);
       localStorage.removeItem(STORAGE_KEYS.AUTH_TOKEN);
     }

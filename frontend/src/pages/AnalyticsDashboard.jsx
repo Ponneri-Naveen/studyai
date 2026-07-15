@@ -41,18 +41,21 @@ const AnalyticsDashboard = () => {
         : `${API_ENDPOINTS.ANALYSIS.BASE.replace('analysis', 'analytics')}/dashboard`;
       
       const method = force ? api.post : api.get;
-      const response = await method(dashboardUrl);
+      const config = force ? { headers: { 'X-Bypass-Cache': 'true' } } : {};
+      const response = await method(dashboardUrl, config);
       setMetrics(response.data);
       
       // Fetch charts timeline
       const performanceResp = await api.get(
-        `${API_ENDPOINTS.ANALYSIS.BASE.replace('analysis', 'analytics')}/performance`
+        `${API_ENDPOINTS.ANALYSIS.BASE.replace('analysis', 'analytics')}/performance`,
+        config
       );
       setTimeline(performanceResp.data.performance_timeline);
       
       // Fetch activity logs
       const activityResp = await api.get(
-        `${API_ENDPOINTS.ANALYSIS.BASE.replace('analysis', 'analytics')}/activity`
+        `${API_ENDPOINTS.ANALYSIS.BASE.replace('analysis', 'analytics')}/activity`,
+        config
       );
       setActivities(activityResp.data.activities);
       

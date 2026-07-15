@@ -30,7 +30,7 @@
       "description": "Upload a textbook or lecture notes file.",
       "unlocked": true,
       "progress": 100.0,
-      "unlock_date": "2026-07-15T16:20:11.931795Z"
+      "unlock_date": "2026-07-15T16:29:01.766464Z"
     },
     {
       "id": "ach_first_summary",
@@ -54,7 +54,7 @@
       "description": "Attempt practice recall quizzes.",
       "unlocked": true,
       "progress": 100.0,
-      "unlock_date": "2026-07-15T16:20:11.931795Z"
+      "unlock_date": "2026-07-15T16:29:01.766464Z"
     },
     {
       "id": "ach_perfect_quiz",
@@ -62,7 +62,7 @@
       "description": "Unlock a 100% quiz evaluation score.",
       "unlocked": true,
       "progress": 100.0,
-      "unlock_date": "2026-07-15T16:20:11.931795Z"
+      "unlock_date": "2026-07-15T16:29:01.766464Z"
     },
     {
       "id": "ach_streak_7",
@@ -89,5 +89,5 @@
       "unlock_date": null
     }
   ],
-  "last_updated": "2026-07-15T16:20:11.931795Z"
+  "last_updated": "2026-07-15T16:29:01.766464Z"
 }
