@@ -216,3 +216,33 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ─── StudyAI Project ───────────────────────────────────────────────────────────
+
+# Node / Vite frontend
+node_modules/
+dist/
+.vite/
+*.local
+
+# Uploads & Logs (runtime dirs)
+backend/uploads/
+backend/logs/
+
+# Environment files (never commit real secrets)
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Firebase service account keys
+serviceAccountKey.json
+firebase-adminsdk*.json
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
