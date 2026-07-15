@@ -43,6 +43,10 @@ def create_app() -> Flask:
     # Initialize local storage databases
     from services.storage_service import initialize_storage
     initialize_storage()
+    
+    # Initialize repositories selection factory drivers
+    from services.repositories.repository_factory import RepositoryFactory
+    RepositoryFactory.initialize()
 
     # ── 6. Request Correlation Identifiers ───────────────────────────────────────
     @app.before_request

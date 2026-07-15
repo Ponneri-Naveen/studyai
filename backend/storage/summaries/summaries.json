@@ -1,14 +1,14 @@
 {
   "summaries": [
     {
-      "material_id": "mat_485cb3be",
-      "summary_id": "sum_485cb3be",
+      "material_id": "mat_cf6734a0",
+      "summary_id": "sum_cf6734a0",
       "title": "Huge Notes Summary",
       "subject": "Chemistry",
       "active_version": 1,
       "summary_status": "generated",
-      "created_at": "2026-07-15T16:29:12.375696Z",
-      "updated_at": "2026-07-15T16:29:12.375696Z",
+      "created_at": "2026-07-15T16:53:48.069305Z",
+      "updated_at": "2026-07-15T16:53:48.071308Z",
       "history": [
         {
           "version": 1,
@@ -16,7 +16,7 @@
           "prompt_version": "summary_v1",
           "word_count": 5,
           "char_count": 38,
-          "markdown_file_path": "storage/summaries/texts/sum_mat_485cb3be_v1.md",
+          "markdown_file_path": "storage/summaries/texts/sum_mat_cf6734a0_v1.md",
           "ai_metadata": {
             "model": "llama-3.3-70b-versatile",
             "prompt_version": "summary_v1",
@@ -25,7 +25,7 @@
             "completion_tokens": 108,
             "total_tokens": 360
           },
-          "created_at": "2026-07-15T16:29:12.375696Z"
+          "created_at": "2026-07-15T16:53:48.071308Z"
         }
       ]
     }
