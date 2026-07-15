@@ -19,8 +19,21 @@ class Config:
     # CORS
     FRONTEND_URL: str = os.getenv("FRONTEND_URL", "http://localhost:5173")
 
-    # Groq AI (populated later)
+    # Groq AI Configurations
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
+    GROQ_TIMEOUT_SECONDS: float = float(os.getenv("GROQ_TIMEOUT_SECONDS", "30.0"))
+    GROQ_MAX_RETRIES: int = int(os.getenv("GROQ_MAX_RETRIES", "3"))
+
+    # Centralized Model Registry
+    MODELS: dict = {
+        "default": "llama-3.3-70b-versatile",
+        "fast": "llama-3.1-8b-instant"
+    }
+
+    # Centralized Usage Limits
+    MAX_PROMPT_LENGTH: int = 50000
+    MAX_OUTPUT_TOKENS: int = 4096
+    MAX_REQUESTS_PER_MINUTE: int = 20
 
     # Firebase (populated later)
     FIREBASE_PROJECT_ID: str = os.getenv("FIREBASE_PROJECT_ID", "")

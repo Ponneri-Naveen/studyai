@@ -27,6 +27,10 @@ export const API_ENDPOINTS = {
     UPLOAD: '/v1/materials/upload',
     TEXT: '/v1/materials/text',
   },
+  AI: {
+    HEALTH: '/v1/ai/health',
+    TEST: '/v1/ai/test',
+  },
 };
 
 export const STORAGE_KEYS = {

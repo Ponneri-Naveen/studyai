@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { ROUTES, API_ENDPOINTS } from '../constants';
 import api from '../services/api';
 import toast from 'react-hot-toast';
+import AIStatusIndicator from '../components/ai/AIStatusIndicator';
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -116,36 +117,41 @@ const Dashboard = () => {
         </Link>
       </div>
 
-      {/* Connection Status Banner (Requirement 12) */}
-      <div className="rounded-xl border border-dark-850/60 p-4 backdrop-blur-sm transition-all duration-300">
-        {healthStatus === 'checking' && (
-          <div className="flex items-center gap-3 text-dark-300">
-            <div className="h-5 w-5 animate-spin rounded-full border-2 border-dark-400 border-t-transparent"></div>
-            <span className="text-sm font-medium">Checking server connectivity...</span>
-          </div>
-        )}
-
-        {healthStatus === 'success' && (
-          <div className="flex items-center justify-between flex-wrap gap-2">
-            <div className="flex items-center gap-3 text-emerald-400 bg-emerald-950/20 px-3 py-1.5 rounded-lg border border-emerald-500/10">
-              <CheckCircle className="w-5 h-5 flex-shrink-0" />
-              <span className="text-sm font-semibold tracking-wide">Backend Connected Successfully</span>
+      {/* Connection Status Banner (Requirement 12) & AI Status Indicator */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 rounded-xl border border-dark-850/60 bg-dark-900/20 backdrop-blur-sm">
+        <div className="flex-grow">
+          {healthStatus === 'checking' && (
+            <div className="flex items-center gap-3 text-dark-300">
+              <div className="h-5 w-5 animate-spin rounded-full border-2 border-dark-400 border-t-transparent"></div>
+              <span className="text-sm font-medium">Checking server connectivity...</span>
             </div>
-            <span className="text-xs text-dark-400 font-mono">
-              Server Version: {healthData?.version || '1.0.0'}
-            </span>
-          </div>
-        )}
+          )}
 
-        {healthStatus === 'error' && (
-          <div className="flex items-center gap-3 text-red-400 bg-red-950/20 p-3 rounded-lg border border-red-500/10">
-            <XCircle className="w-5 h-5 flex-shrink-0" />
-            <div className="flex-1">
-              <span className="text-sm font-semibold block">Connection Failure</span>
-              <span className="text-xs text-red-300/80">{errorMessage}</span>
+          {healthStatus === 'success' && (
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <div className="flex items-center gap-3 text-emerald-400 bg-emerald-950/20 px-3 py-1.5 rounded-lg border border-emerald-500/10">
+                <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm font-semibold tracking-wide">Backend Connected Successfully</span>
+              </div>
+              <span className="text-xs text-dark-400 font-mono">
+                Server Version: {healthData?.version || '1.0.0'}
+              </span>
             </div>
-          </div>
-        )}
+          )}
+
+          {healthStatus === 'error' && (
+            <div className="flex items-center gap-3 text-red-400 bg-red-950/20 p-3 rounded-lg border border-red-500/10">
+              <XCircle className="w-5 h-5 flex-shrink-0" />
+              <div className="flex-1">
+                <span className="text-sm font-semibold block">Connection Failure</span>
+                <span className="text-xs text-red-300/80">{errorMessage}</span>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="flex-shrink-0 border-t md:border-t-0 md:border-l border-dark-850 pt-3 md:pt-0 md:pl-4 flex items-center">
+          <AIStatusIndicator />
+        </div>
       </div>
 
       {/* Metrics Grid */}
