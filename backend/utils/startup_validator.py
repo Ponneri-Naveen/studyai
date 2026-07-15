@@ -21,6 +21,10 @@ def validate_production_readiness(app_config) -> None:
     Validates env keys, storage permissions, and prompt catalogs.
     Fails fast by raising ConfigurationError.
     """
+    if getattr(app_config, "TESTING", False) is True:
+        logger.info("Bypassing production readiness validations under testing configs.")
+        return
+        
     logger.info("Executing production environment startup validations...")
     
     # 1. Environment Secrets Valids checks

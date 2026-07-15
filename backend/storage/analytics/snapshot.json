@@ -1,16 +1,16 @@
 {
   "overview": {
-    "materials_uploaded": 4,
+    "materials_uploaded": 1,
     "summaries_generated": 0,
-    "flashcards_generated": 8,
+    "flashcards_generated": 0,
     "flashcards_mastered": 0,
     "quiz_attempts": 1,
-    "avg_quiz_score": 11.1,
-    "highest_score": 11.1,
-    "lowest_score": 11.1,
-    "weak_topic_count": 1,
-    "strong_topic_count": 1,
-    "plans_generated": 1,
+    "avg_quiz_score": 100.0,
+    "highest_score": 100.0,
+    "lowest_score": 100.0,
+    "weak_topic_count": 0,
+    "strong_topic_count": 0,
+    "plans_generated": 0,
     "tasks_completed": 0,
     "tasks_remaining": 0,
     "current_streak": 0,
@@ -20,11 +20,9 @@
   "trends": {
     "quiz_score_trend": "stable",
     "flashcards_mastery_rate": 0.0,
-    "learning_velocity": 2.2
+    "learning_velocity": 1.0
   },
-  "weak_topics_list": [
-    "Topic B"
-  ],
+  "weak_topics_list": [],
   "achievements": [
     {
       "id": "ach_first_upload",
@@ -32,7 +30,7 @@
       "description": "Upload a textbook or lecture notes file.",
       "unlocked": true,
       "progress": 100.0,
-      "unlock_date": "2026-07-15T17:50:52.021776Z"
+      "unlock_date": "2026-07-15T18:14:43.030794Z"
     },
     {
       "id": "ach_first_summary",
@@ -46,9 +44,9 @@
       "id": "ach_first_cards",
       "name": "Card Deck Builder",
       "description": "Create a flashcard active-recall deck.",
-      "unlocked": true,
-      "progress": 100.0,
-      "unlock_date": "2026-07-15T17:50:52.021776Z"
+      "unlocked": false,
+      "progress": 0.0,
+      "unlock_date": null
     },
     {
       "id": "ach_first_quiz",
@@ -56,15 +54,15 @@
       "description": "Attempt practice recall quizzes.",
       "unlocked": true,
       "progress": 100.0,
-      "unlock_date": "2026-07-15T17:50:52.021776Z"
+      "unlock_date": "2026-07-15T18:14:43.030794Z"
     },
     {
       "id": "ach_perfect_quiz",
       "name": "Perfect Score",
       "description": "Unlock a 100% quiz evaluation score.",
-      "unlocked": false,
-      "progress": 0.0,
-      "unlock_date": null
+      "unlocked": true,
+      "progress": 100.0,
+      "unlock_date": "2026-07-15T18:14:43.030794Z"
     },
     {
       "id": "ach_streak_7",
@@ -91,5 +89,5 @@
       "unlock_date": null
     }
   ],
-  "last_updated": "2026-07-15T17:50:52.022288Z"
+  "last_updated": "2026-07-15T18:14:43.030794Z"
 }

@@ -11,43 +11,6 @@
           "created_at": "2026-07-15T16:00:00Z"
         }
       ]
-    },
-    {
-      "material_id": "mat_bd4f375a",
-      "quiz_id": "qz_bd4f375a",
-      "summary_version": 1,
-      "flashcard_version": 2,
-      "active_version": 2,
-      "created_at": "2026-07-15T17:44:44.566110Z",
-      "updated_at": "2026-07-15T17:45:02.903326Z",
-      "history": [
-        {
-          "version": 1,
-          "questions_file_path": "storage/quizzes/questions/qz_mat_bd4f375a_v1.json",
-          "ai_metadata": {
-            "model": "llama-3.3-70b-versatile",
-            "prompt_version": "quiz_v1",
-            "latency_ms": 24279,
-            "prompt_tokens": 2177,
-            "completion_tokens": 933,
-            "total_tokens": 3110
-          },
-          "created_at": "2026-07-15T17:44:44.569869Z"
-        },
-        {
-          "version": 2,
-          "questions_file_path": "storage/quizzes/questions/qz_mat_bd4f375a_v2.json",
-          "ai_metadata": {
-            "model": "llama-3.3-70b-versatile",
-            "prompt_version": "quiz_v1",
-            "latency_ms": 23928,
-            "prompt_tokens": 2179,
-            "completion_tokens": 934,
-            "total_tokens": 3114
-          },
-          "created_at": "2026-07-15T17:45:02.903326Z"
-        }
-      ]
     }
   ]
 }
